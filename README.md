@@ -10,3 +10,31 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/limetext/lime)
 
 This is the QML frontend for Lime. For more information about the project, please see [limetext/lime](https://github.com/limetext/lime).
+
+## How to build
+go: version 1.17.3
+
+### Prerequisites
+
+1. oniguruma
+
+ubuntu 20 or above: 
+
+```apt install libonig5```
+
+ubuntu 18: 
+
+Compile and install from source: https://github.com/kkos/oniguruma
+
+2. Qt5Core Qt5Widgets Qt5Quick
+```sh
+sudo apt install libqt5quick5 qtdeclarative5-dev qtbase5-private-dev
+```
+### build 
+```sh
+go mod tidy
+```
+```sh
+export CGO_CXXFLAGS="-I/usr/include/x86_64-linux-gnu/qt5/QtCore/5.9.5/"
+make build
+```
